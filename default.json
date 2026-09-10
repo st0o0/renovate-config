@@ -5,9 +5,10 @@
     "config:recommended"
   ],
   "timezone": "Europe/Berlin",
-  "schedule": ["before 7am every weekday", "every weekend"],
+  "schedule": ["before 7am on Monday"],
   "prConcurrentLimit": 0,
   "prHourlyLimit": 0,
+  "prCreation": "immediate",
   "dependencyDashboard": false,
   "rebaseWhen": "behind-base-branch",
   "configMigration": true,
