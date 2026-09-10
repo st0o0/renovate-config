@@ -1,0 +1,22 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Preset for Go projects -- groups all deps, automerges minor+patch",
+  "extends": [
+    "local>st0o0/renovate-config"
+  ],
+  "packageRules": [
+    {
+      "description": "Group all Go module updates into a single PR",
+      "groupName": "go-deps",
+      "matchManagers": ["gomod"],
+      "matchUpdateTypes": ["minor", "patch", "digest"]
+    },
+    {
+      "description": "Automerge minor+patch Go module updates after CI passes",
+      "matchManagers": ["gomod"],
+      "matchUpdateTypes": ["minor", "patch", "digest"],
+      "automerge": true,
+      "automergeType": "pr"
+    }
+  ]
+}

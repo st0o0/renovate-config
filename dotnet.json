@@ -1,0 +1,58 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Preset for .NET projects -- groups NuGet deps by family, automerges minor+patch",
+  "extends": [
+    "local>st0o0/renovate-config"
+  ],
+  "packageRules": [
+    {
+      "description": "Disable own packages (Servus.*)",
+      "matchPackagePatterns": ["^Servus\\."],
+      "enabled": false
+    },
+    {
+      "description": "Group Akka.* packages (must stay version-aligned)",
+      "groupName": "akka",
+      "matchPackagePatterns": ["^Akka\\."]
+    },
+    {
+      "description": "Group Microsoft.* + Npgsql.* (EFCore provider tracks EFCore)",
+      "groupName": "microsoft",
+      "matchPackagePatterns": ["^Microsoft\\.", "^Npgsql\\."]
+    },
+    {
+      "description": "Group Serilog.* packages",
+      "groupName": "serilog",
+      "matchPackagePatterns": ["^Serilog\\."]
+    },
+    {
+      "description": "Group testing packages",
+      "groupName": "testing",
+      "matchPackagePatterns": [
+        "^xunit\\.",
+        "^Microsoft\\.Testing\\.",
+        "^Verify\\.",
+        "^TngTech\\.ArchUnitNET",
+        "^System\\.IO\\.Abstractions\\.TestingHelpers"
+      ],
+      "matchPackageNames": [
+        "NSubstitute",
+        "FakeItEasy",
+        "WireMock.Net"
+      ]
+    },
+    {
+      "description": "Group gRPC + Protobuf packages",
+      "groupName": "grpc",
+      "matchPackagePatterns": ["^Grpc\\."],
+      "matchPackageNames": ["Google.Protobuf"]
+    },
+    {
+      "description": "Automerge minor+patch NuGet updates after CI passes",
+      "matchManagers": ["nuget"],
+      "matchUpdateTypes": ["minor", "patch", "digest"],
+      "automerge": true,
+      "automergeType": "pr"
+    }
+  ]
+}
