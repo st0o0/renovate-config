@@ -1,0 +1,28 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Preset for repos with VitePress docs -- groups npm docs tooling, automerges minor+patch",
+  "packageRules": [
+    {
+      "description": "Group VitePress and related docs tooling",
+      "groupName": "docs-tooling",
+      "matchManagers": ["npm"],
+      "matchPackagePatterns": [
+        "^vitepress",
+        "^vue$",
+        "^likec4",
+        "^@leberkas-org/vitepress-"
+      ],
+      "matchUpdateTypes": ["minor", "patch", "digest"],
+      "automerge": true,
+      "automergeType": "pr"
+    },
+    {
+      "description": "Group remaining npm dependencies",
+      "groupName": "npm-deps",
+      "matchManagers": ["npm"],
+      "matchUpdateTypes": ["minor", "patch", "digest"],
+      "automerge": true,
+      "automergeType": "pr"
+    }
+  ]
+}
