@@ -1,14 +1,60 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "description": "Preset for Go projects -- groups all deps, automerges minor+patch",
+  "description": "Preset for Go projects -- groups deps by ecosystem, automerges minor+patch",
   "extends": [
     "local>st0o0/renovate-config"
   ],
   "packageRules": [
     {
-      "description": "Group all Go module updates into a single PR",
-      "groupName": "go-deps",
+      "description": "Group golang Docker base image + Go toolchain directive",
+      "groupName": "go-toolchain",
+      "matchDatasources": ["docker"],
+      "matchPackageNames": ["golang"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "automerge": true,
+      "automergeType": "pr"
+    },
+    {
+      "description": "Group Go toolchain directive (go X.Y in go.mod) with Docker image",
+      "groupName": "go-toolchain",
       "matchManagers": ["gomod"],
+      "matchDepTypes": ["golang"],
+      "automerge": true,
+      "automergeType": "pr"
+    },
+    {
+      "description": "Group Prometheus packages",
+      "groupName": "prometheus",
+      "matchManagers": ["gomod"],
+      "matchPackageNames": ["/^github\\.com\\/prometheus\\//", "/^github\\.com\\/prometheus-community\\//"],
+      "matchUpdateTypes": ["minor", "patch", "digest"]
+    },
+    {
+      "description": "Group Docker + container ecosystem packages",
+      "groupName": "docker",
+      "matchManagers": ["gomod"],
+      "matchPackageNames": ["/^github\\.com\\/docker\\//", "/^github\\.com\\/containerd\\//", "/^github\\.com\\/moby\\//", "/^github\\.com\\/opencontainers\\//"],
+      "matchUpdateTypes": ["minor", "patch", "digest"]
+    },
+    {
+      "description": "Group OpenTelemetry packages",
+      "groupName": "opentelemetry",
+      "matchManagers": ["gomod"],
+      "matchPackageNames": ["/^go\\.opentelemetry\\.io\\//"],
+      "matchUpdateTypes": ["minor", "patch", "digest"]
+    },
+    {
+      "description": "Group golang.org/x/* standard library extensions",
+      "groupName": "golang-x",
+      "matchManagers": ["gomod"],
+      "matchPackageNames": ["/^golang\\.org\\/x\\//"],
+      "matchUpdateTypes": ["minor", "patch", "digest"]
+    },
+    {
+      "description": "Group WireGuard packages",
+      "groupName": "wireguard",
+      "matchManagers": ["gomod"],
+      "matchPackageNames": ["/^golang\\.zx2c4\\.com\\/wireguard/"],
       "matchUpdateTypes": ["minor", "patch", "digest"]
     },
     {
