@@ -7,35 +7,34 @@
   "packageRules": [
     {
       "description": "Disable own packages (Servus.*)",
-      "matchPackagePatterns": ["^Servus\\."],
+      "matchPackageNames": ["/^Servus\\./"],
       "enabled": false
     },
     {
       "description": "Group Akka.* packages (must stay version-aligned)",
       "groupName": "akka",
-      "matchPackagePatterns": ["^Akka\\."]
+      "matchPackageNames": ["/^Akka\\./"]
     },
     {
-      "description": "Group Microsoft.* + Npgsql.* (EFCore provider tracks EFCore)",
+      "description": "Group Microsoft.* + Npgsql.* (EFCore provider tracks EFCore), excluding testing packages",
       "groupName": "microsoft",
-      "matchPackagePatterns": ["^Microsoft\\.", "^Npgsql\\."]
+      "matchPackageNames": ["/^Microsoft\\./", "/^Npgsql\\./"],
+      "excludePackageNames": ["/^Microsoft\\.Testing\\./"]
     },
     {
       "description": "Group Serilog.* packages",
       "groupName": "serilog",
-      "matchPackagePatterns": ["^Serilog\\."]
+      "matchPackageNames": ["/^Serilog\\./"]
     },
     {
       "description": "Group testing packages",
       "groupName": "testing",
-      "matchPackagePatterns": [
-        "^xunit\\.",
-        "^Microsoft\\.Testing\\.",
-        "^Verify\\.",
-        "^TngTech\\.ArchUnitNET",
-        "^System\\.IO\\.Abstractions\\.TestingHelpers"
-      ],
       "matchPackageNames": [
+        "/^xunit\\./",
+        "/^Microsoft\\.Testing\\./",
+        "/^Verify\\./",
+        "/^TngTech\\.ArchUnitNET/",
+        "/^System\\.IO\\.Abstractions\\.TestingHelpers/",
         "NSubstitute",
         "FakeItEasy",
         "WireMock.Net"
@@ -44,8 +43,7 @@
     {
       "description": "Group gRPC + Protobuf packages",
       "groupName": "grpc",
-      "matchPackagePatterns": ["^Grpc\\."],
-      "matchPackageNames": ["Google.Protobuf"]
+      "matchPackageNames": ["/^Grpc\\./", "Google.Protobuf"]
     },
     {
       "description": "Automerge minor+patch NuGet updates after CI passes",
