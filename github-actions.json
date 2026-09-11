@@ -1,0 +1,28 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Preset for GitHub Actions workflow repos -- groups actions by org, automerges minor+patch, pins digests",
+  "extends": [
+    "local>st0o0/renovate-config"
+  ],
+  "packageRules": [
+    {
+      "description": "Group actions/* updates",
+      "groupName": "github-actions-official",
+      "matchManagers": ["github-actions"],
+      "matchPackageNames": ["/^actions\\//"]
+    },
+    {
+      "description": "Group docker/* updates",
+      "groupName": "github-actions-docker",
+      "matchManagers": ["github-actions"],
+      "matchPackageNames": ["/^docker\\//"]
+    },
+    {
+      "description": "Automerge minor+patch GitHub Actions updates after CI passes",
+      "matchManagers": ["github-actions"],
+      "matchUpdateTypes": ["minor", "patch", "digest"],
+      "automerge": true,
+      "automergeType": "pr"
+    }
+  ]
+}
