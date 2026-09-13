@@ -22,15 +22,8 @@
       "excludePackageNames": ["/^Microsoft\\.Testing\\./"]
     },
     {
-      "description": ".NET SDK (global.json): only major updates, no automerge",
+      "description": ".NET SDK (global.json): disable all updates",
       "matchManagers": ["dotnet-sdk"],
-      "matchUpdateTypes": ["major"],
-      "automerge": false
-    },
-    {
-      "description": ".NET SDK (global.json): disable minor+patch updates",
-      "matchManagers": ["dotnet-sdk"],
-      "matchUpdateTypes": ["minor", "patch"],
       "enabled": false
     },
     {
