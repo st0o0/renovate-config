@@ -1,0 +1,52 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Preset for npm projects -- groups deps by ecosystem, automerges minor+patch",
+  "extends": [
+    "local>st0o0/renovate-config"
+  ],
+  "packageRules": [
+    {
+      "description": "Group Vue + Nuxt framework packages",
+      "groupName": "vue",
+      "matchManagers": ["npm"],
+      "matchPackageNames": ["/^vue/", "/^@vue\\//", "/^@nuxt\\//", "/^nuxt/", "/^@vitejs\\/plugin-vue/"]
+    },
+    {
+      "description": "Group Vite build tooling",
+      "groupName": "vite",
+      "matchManagers": ["npm"],
+      "matchPackageNames": ["/^vite$/", "/^@vite-pwa\\//"]
+    },
+    {
+      "description": "Group Tailwind CSS packages",
+      "groupName": "tailwind",
+      "matchManagers": ["npm"],
+      "matchPackageNames": ["/^tailwindcss$/", "/^@tailwindcss\\//"]
+    },
+    {
+      "description": "Group VitePress",
+      "groupName": "vitepress",
+      "matchManagers": ["npm"],
+      "matchPackageNames": ["vitepress"]
+    },
+    {
+      "description": "Group @fontsource font packages",
+      "groupName": "fontsource",
+      "matchManagers": ["npm"],
+      "matchPackageNames": ["/^@fontsource\\//"]
+    },
+    {
+      "description": "Group commitlint packages",
+      "groupName": "commitlint",
+      "matchManagers": ["npm"],
+      "matchPackageNames": ["/^@commitlint\\//"]
+    },
+    {
+      "description": "Automerge minor+patch npm updates after CI passes",
+      "matchManagers": ["npm"],
+      "matchUpdateTypes": ["minor", "patch", "digest"],
+      "automerge": true,
+      "automergeType": "pr"
+    }
+  ]
+}
