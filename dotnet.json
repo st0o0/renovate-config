@@ -11,6 +11,11 @@
       "enabled": false
     },
     {
+      "description": "Disable ASP.NET Core framework-coupled packages (version must track target framework)",
+      "matchPackageNames": ["/^Microsoft\\.AspNetCore\\./"],
+      "enabled": false
+    },
+    {
       "description": "Group Akka.* packages (must stay version-aligned)",
       "groupName": "akka",
       "matchPackageNames": ["/^Akka\\./"]
