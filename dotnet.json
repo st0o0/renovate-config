@@ -59,6 +59,7 @@
       "description": "Automerge minor+patch NuGet updates after CI passes",
       "matchManagers": ["nuget"],
       "matchUpdateTypes": ["minor", "patch", "digest"],
+      "minimumReleaseAge": "3 days",
       "automerge": true,
       "automergeType": "pr"
     }

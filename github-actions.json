@@ -29,6 +29,7 @@
       "description": "Automerge minor+patch GitHub Actions updates after CI passes",
       "matchManagers": ["github-actions"],
       "matchUpdateTypes": ["minor", "patch", "digest"],
+      "minimumReleaseAge": "3 days",
       "automerge": true,
       "automergeType": "pr"
     }

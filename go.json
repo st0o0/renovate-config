@@ -11,6 +11,7 @@
       "matchDatasources": ["docker"],
       "matchPackageNames": ["golang"],
       "matchUpdateTypes": ["minor", "patch"],
+      "minimumReleaseAge": "3 days",
       "automerge": true,
       "automergeType": "pr"
     },
@@ -19,6 +20,7 @@
       "groupName": "go-toolchain",
       "matchManagers": ["gomod"],
       "matchDepTypes": ["golang"],
+      "minimumReleaseAge": "3 days",
       "automerge": true,
       "automergeType": "pr"
     },
@@ -61,6 +63,7 @@
       "description": "Automerge minor+patch Go module updates after CI passes",
       "matchManagers": ["gomod"],
       "matchUpdateTypes": ["minor", "patch", "digest"],
+      "minimumReleaseAge": "3 days",
       "automerge": true,
       "automergeType": "pr"
     }
