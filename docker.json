@@ -17,8 +17,15 @@
     {
       "description": "Automerge minor+patch Docker image updates after CI passes",
       "matchManagers": ["dockerfile", "docker-compose"],
-      "matchUpdateTypes": ["minor", "patch", "digest"],
+      "matchUpdateTypes": ["minor", "patch"],
       "minimumReleaseAge": "3 days",
+      "automerge": true,
+      "automergeType": "pr"
+    },
+    {
+      "description": "Digest-only rebuilds carry no functional change -- automerge immediately",
+      "matchManagers": ["dockerfile", "docker-compose"],
+      "matchUpdateTypes": ["digest"],
       "automerge": true,
       "automergeType": "pr"
     }

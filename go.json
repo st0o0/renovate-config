@@ -16,6 +16,15 @@
       "automergeType": "pr"
     },
     {
+      "description": "Digest-only rebuilds of the golang Dockerfile base image carry no functional change -- automerge immediately",
+      "groupName": "go-toolchain",
+      "matchManagers": ["dockerfile"],
+      "matchPackageNames": ["golang"],
+      "matchUpdateTypes": ["digest"],
+      "automerge": true,
+      "automergeType": "pr"
+    },
+    {
       "description": "Group Go toolchain directive (go X.Y in go.mod) with Docker image",
       "groupName": "go-toolchain",
       "matchManagers": ["gomod"],

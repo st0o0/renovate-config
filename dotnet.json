@@ -61,8 +61,17 @@
       "groupName": "dotnet-docker",
       "matchDatasources": ["docker"],
       "matchPackageNames": ["/^mcr\\.microsoft\\.com\\/dotnet\\//"],
-      "matchUpdateTypes": ["minor", "patch", "digest"],
+      "matchUpdateTypes": ["minor", "patch"],
       "minimumReleaseAge": "3 days",
+      "automerge": true,
+      "automergeType": "pr"
+    },
+    {
+      "description": "Digest-only rebuilds of .NET Docker images carry no functional change -- automerge immediately",
+      "groupName": "dotnet-docker",
+      "matchDatasources": ["docker"],
+      "matchPackageNames": ["/^mcr\\.microsoft\\.com\\/dotnet\\//"],
+      "matchUpdateTypes": ["digest"],
       "automerge": true,
       "automergeType": "pr"
     },
