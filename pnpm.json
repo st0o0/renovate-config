@@ -1,6 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "description": "Preset for npm projects -- groups deps by ecosystem, automerges minor+patch",
+  "description": "Preset for pnpm projects -- groups deps by ecosystem, automerges minor+patch (Renovate's npm manager also covers pnpm)",
   "extends": [
     "local>st0o0/renovate-config"
   ],
