@@ -4,6 +4,11 @@
   "extends": [
     "local>st0o0/renovate-config"
   ],
+  "lockFileMaintenance": {
+    "enabled": true,
+    "automerge": true,
+    "automergeType": "pr"
+  },
   "packageRules": [
     {
       "description": "Group Vue + Nuxt framework packages",
