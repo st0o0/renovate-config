@@ -57,6 +57,16 @@
       "matchPackageNames": ["/^Grpc\\./", "Google.Protobuf"]
     },
     {
+      "description": "Group .NET Docker images (sdk/aspnet/runtime-deps must stay version-aligned)",
+      "groupName": "dotnet-docker",
+      "matchDatasources": ["docker"],
+      "matchPackageNames": ["/^mcr\\.microsoft\\.com\\/dotnet\\//"],
+      "matchUpdateTypes": ["minor", "patch", "digest"],
+      "minimumReleaseAge": "3 days",
+      "automerge": true,
+      "automergeType": "pr"
+    },
+    {
       "description": "Automerge minor+patch NuGet updates after CI passes",
       "matchManagers": ["nuget"],
       "matchUpdateTypes": ["minor", "patch", "digest"],

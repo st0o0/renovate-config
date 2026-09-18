@@ -1,0 +1,26 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Preset for pure Docker/Compose repos -- pins digests, enables docker-compose manager, automerges minor+patch",
+  "extends": [
+    "local>st0o0/renovate-config",
+    "docker:pinDigests",
+    "workarounds:doNotUpgradeFromAlpineStableToEdge"
+  ],
+  "docker-compose": {
+    "managerFilePatterns": [
+      "/(^|/)compose\\.ya?ml$/",
+      "/(^|/)compose\\.override\\.[\\w.-]+\\.ya?ml$/",
+      "/(^|/)docker-compose\\.ya?ml$/"
+    ]
+  },
+  "packageRules": [
+    {
+      "description": "Automerge minor+patch Docker image updates after CI passes",
+      "matchManagers": ["dockerfile", "docker-compose"],
+      "matchUpdateTypes": ["minor", "patch", "digest"],
+      "minimumReleaseAge": "3 days",
+      "automerge": true,
+      "automergeType": "pr"
+    }
+  ]
+}
