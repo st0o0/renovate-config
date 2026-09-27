@@ -11,6 +11,7 @@
   "prHourlyLimit": 0,
   "prCreation": "immediate",
   "dependencyDashboard": false,
+  "automergeSchedule": ["after 12am and before 6am"],
   "rebaseWhen": "behind-base-branch",
   "configMigration": true,
   "commitMessagePrefix": "chore(deps):",
