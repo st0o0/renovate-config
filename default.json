@@ -6,7 +6,7 @@
     "helpers:githubDigestChangelogs"
   ],
   "timezone": "Europe/Berlin",
-  "schedule": ["at any time"],
+  "schedule": ["after 6am and before 6pm"],
   "prConcurrentLimit": 0,
   "prHourlyLimit": 0,
   "prCreation": "immediate",
