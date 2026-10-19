@@ -42,6 +42,11 @@
       "enabled": false
     },
     {
+      "description": "Group OpenTelemetry packages (core + contrib must stay version-aligned)",
+      "groupName": "opentelemetry",
+      "matchPackageNames": ["/^OpenTelemetry\\./"]
+    },
+    {
       "description": "Group Serilog.* packages",
       "groupName": "serilog",
       "matchPackageNames": ["/^Serilog\\./"]
