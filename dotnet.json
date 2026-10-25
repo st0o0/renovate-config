@@ -6,7 +6,7 @@
   ],
   "packageRules": [
     {
-      "description": "Group Terp.* packages (released together with one shared version)",
+      "description": "Group Terp and Terp.* packages",
       "groupName": "terp",
       "matchPackageNames": ["/^Terp\\./"],
       "sourceUrl": "https://github.com/st0o0/terp"
