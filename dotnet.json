@@ -6,9 +6,10 @@
   ],
   "packageRules": [
     {
-      "description": "Disable own packages (Servus.*)",
-      "matchPackageNames": ["/^Servus\\./"],
-      "enabled": false
+      "description": "Group Terp.* packages (released together with one shared version)",
+      "groupName": "terp",
+      "matchPackageNames": ["/^Terp\\./"],
+      "sourceUrl": "https://github.com/st0o0/terp"
     },
     {
       "description": "Disable ASP.NET Core framework-coupled packages (version must track target framework)",
