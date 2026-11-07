@@ -4,6 +4,7 @@
   "extends": [
     "local>st0o0/renovate-config"
   ],
+  "postUpdateOptions": ["gomodTidy"],
   "packageRules": [
     {
       "description": "Group golang Docker base image + Go toolchain directive",
