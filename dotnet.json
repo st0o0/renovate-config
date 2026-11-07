@@ -9,7 +9,7 @@
       "description": "Group Terp and Terp.* packages",
       "groupName": "terp",
       "matchPackageNames": ["/^Terp(\\.|$)/"],
-      "sourceUrl": "https://github.com/st0o0/terp"
+      "sourceUrl": "https://github.com/NoNeedConcept/terp"
     },
     {
       "description": "Disable ASP.NET Core framework-coupled packages (version must track target framework)",
