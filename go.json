@@ -34,6 +34,12 @@
       "automergeType": "pr"
     },
     {
+      "description": "Keep the go directive on the latest patch -- Renovate leaves it untouched by default",
+      "matchManagers": ["gomod"],
+      "matchDepTypes": ["golang"],
+      "rangeStrategy": "bump"
+    },
+    {
       "description": "Group Prometheus packages",
       "groupName": "prometheus",
       "matchManagers": ["gomod"],
