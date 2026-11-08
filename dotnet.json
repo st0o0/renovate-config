@@ -19,7 +19,7 @@
     {
       "description": "Group Akka.* packages (must stay version-aligned)",
       "groupName": "akka",
-      "matchPackageNames": ["/^Akka\\./"],
+      "matchPackageNames": ["/^Akka(\\.|$)/"],
       "sourceUrl": "https://github.com/akkadotnet/akka.net"
     },
     {
