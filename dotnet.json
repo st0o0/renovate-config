@@ -1,13 +1,12 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "description": "Preset for .NET projects -- groups NuGet deps by family, automerges minor+patch",
+  "description": "Preset for .NET projects -- groups version-aligned deps, automerges minor+patch",
   "extends": [
     "local>st0o0/renovate-config"
   ],
   "packageRules": [
     {
-      "description": "Group Terp and Terp.* packages",
-      "groupName": "terp",
+      "description": "Terp and Terp.* packages changelog source",
       "matchPackageNames": ["/^Terp(\\.|$)/"],
       "sourceUrl": "https://github.com/NoNeedConcept/terp"
     },
@@ -23,10 +22,9 @@
       "sourceUrl": "https://github.com/akkadotnet/akka.net"
     },
     {
-      "description": "Group Microsoft.* + Npgsql.* (EFCore provider tracks EFCore), excluding testing packages",
-      "groupName": "microsoft",
-      "matchPackageNames": ["/^Microsoft\\./", "/^Npgsql\\./"],
-      "excludePackageNames": ["/^Microsoft\\.Testing\\./"]
+      "description": "Group EF Core + Npgsql provider (must stay compatible)",
+      "groupName": "efcore",
+      "matchPackageNames": ["/^Microsoft\\.EntityFrameworkCore/", "/^Npgsql\\.EntityFrameworkCore/"]
     },
     {
       "description": ".NET SDK (global.json): only major updates, no automerge",
@@ -46,25 +44,6 @@
       "description": "Group OpenTelemetry packages (core + contrib must stay version-aligned)",
       "groupName": "opentelemetry",
       "matchPackageNames": ["/^OpenTelemetry\\./"]
-    },
-    {
-      "description": "Group Serilog.* packages",
-      "groupName": "serilog",
-      "matchPackageNames": ["/^Serilog\\./"]
-    },
-    {
-      "description": "Group testing packages",
-      "groupName": "testing",
-      "matchPackageNames": [
-        "/^xunit\\./",
-        "/^Microsoft\\.Testing\\./",
-        "/^Verify\\./",
-        "/^TngTech\\.ArchUnitNET/",
-        "/^System\\.IO\\.Abstractions\\.TestingHelpers/",
-        "NSubstitute",
-        "FakeItEasy",
-        "WireMock.Net"
-      ]
     },
     {
       "description": "Group gRPC + Protobuf packages",
