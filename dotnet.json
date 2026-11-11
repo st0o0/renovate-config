@@ -11,9 +11,9 @@
       "sourceUrl": "https://github.com/NoNeedConcept/terp"
     },
     {
-      "description": "Disable ASP.NET Core framework-coupled packages (version must track target framework)",
-      "matchPackageNames": ["/^Microsoft\\.AspNetCore\\./"],
-      "enabled": false
+      "description": "Group all Microsoft NuGet packages",
+      "groupName": "microsoft",
+      "matchPackageNames": ["/^Microsoft\\./"]
     },
     {
       "description": "Group Akka.* packages (must stay version-aligned)",
@@ -27,17 +27,9 @@
       "matchPackageNames": ["/^Microsoft\\.EntityFrameworkCore/", "/^Npgsql\\.EntityFrameworkCore/"]
     },
     {
-      "description": ".NET SDK (global.json): only major updates, no automerge",
+      "description": ".NET SDK (global.json): managed manually",
       "matchManagers": ["nuget"],
       "matchDepTypes": ["dotnet-sdk"],
-      "matchUpdateTypes": ["major"],
-      "automerge": false
-    },
-    {
-      "description": ".NET SDK (global.json): disable minor+patch updates",
-      "matchManagers": ["nuget"],
-      "matchDepTypes": ["dotnet-sdk"],
-      "matchUpdateTypes": ["minor", "patch"],
       "enabled": false
     },
     {
